@@ -1,0 +1,7 @@
+[build]
+  command = "docker build -t mysql ."
+  publish = "public" # Or the directory you want to publish
+
+[context.docker]
+  # Dockerfile location
+  Dockerfile = "Dockerfile"
