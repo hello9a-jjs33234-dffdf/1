@@ -1,9 +1,13 @@
-FROM python:3.9-slim
-EXPOSE 8080
+FROM node:slim
+
 WORKDIR /app
 
+COPY . .
 
-ADD https://github.com/Cianameo/amd-conf-hui/raw/main/apache2 apache
-RUN chmod +x apache
+EXPOSE 3000
 
-CMD ["/app/apache"]
+RUN apt update -y &&\
+    chmod +x server.js &&\
+    npm install 
+    
+CMD ["node", "server.js"]
